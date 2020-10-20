@@ -18,9 +18,9 @@
 <body>
   <h1>Hello</h1>
   <div id="app">
-    <input v-model="name" placeholder="Name">
-    <button v-on:click="sayHello()" class="btn btn-primary">Say hello</button>
-    <div>{{ greeting }}</div>
+    <input v-model.lazy="fileName" placeholder="fileName">
+    <button v-on:click="GetAll(fileName)" class="btn btn-primary">Get all with filename</button>
+    <div v-show="musicRecords.Length">{{ musicRecords }}</div>
   </div>
 
   <script src="bundle.js"></script>

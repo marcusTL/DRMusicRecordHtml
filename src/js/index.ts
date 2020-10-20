@@ -1,7 +1,17 @@
-import axios,{
-    AxiosResponse, 
+import axios, {
+    AxiosResponse,
     AxiosError
 } from "../../node_modules/axios/index"
+
+interface IMusicRecord{
+    Title: string
+    Artist: string
+    DurationInSec: number
+    YearOfPublication: number
+    IsCertifiedPlatinum: boolean
+}
+
+let baseURL = "http://noitrest.azurewebsites.net/MusicRecord/";
 
 new Vue({
     // TypeScript compiler complains about Vue because the CDN link to Vue is in the html file.
@@ -9,23 +19,23 @@ new Vue({
     // which is included at the bottom of the html file.
     el: "#app",
     data: {
-        name: "",
-        greeting: "",
-        MusicRecord: {artist:"", DurationInSec: , }
+        fileName: "",
+        musicRecords: [],
+        addMusicRecord: {
+            Title: "", Artist: "", DurationInSec: 0,
+            YearOfPublication: 0, IsCertifiedPlatinum: false
+        }
     },
     methods: {
-        GetAll(){
-            axios.get<>
+        GetAll(fileName:string) : void{
+            axios.get<IMusicRecord[]>(baseURL + fileName)
+                .then((response: AxiosResponse<IMusicRecord[]>) => {
+                    this.musicRecords = response.data;
+                })
+                .catch((error: AxiosError) => {
+                    console.log(error.message);
+                })
 
-        },
-        sayHello() {
-            console.log("Say Hello " + this.name)
-            if (this.name == "") {
-                this.greeting = "Hello NoName"
-            }
-            else {
-                this.greeting = "Hello " + this.name
-            }
         }
     }
 })
