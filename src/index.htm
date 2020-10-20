@@ -18,9 +18,8 @@
 <body>
   <h1>Hello</h1>
   <div id="app">
-    <input v-model.lazy="fileName" placeholder="fileName">
-    <button v-on:click="GetAll(fileName)" class="btn btn-primary">Get all with filename</button>
-    <div v-show="musicRecords.Length">{{ musicRecords }}</div>
+    <button v-on:click="GetAll()" class="btn btn-primary">Get all with filename</button>
+    <div>{{ musicRecords }}</div>
   </div>
 
   <script src="bundle.js"></script>

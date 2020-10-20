@@ -27,10 +27,11 @@ new Vue({
         }
     },
     methods: {
-        GetAll(fileName:string) : void{
-            axios.get<IMusicRecord[]>(baseURL + fileName)
+        GetAll() : void{
+            axios.get<IMusicRecord[]>(baseURL)
                 .then((response: AxiosResponse<IMusicRecord[]>) => {
                     this.musicRecords = response.data;
+                    console.log(response.data)
                 })
                 .catch((error: AxiosError) => {
                     console.log(error.message);
