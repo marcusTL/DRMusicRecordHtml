@@ -1,3 +1,8 @@
+import axios,{
+    AxiosResponse, 
+    AxiosError
+} from "../../node_modules/axios/index"
+
 new Vue({
     // TypeScript compiler complains about Vue because the CDN link to Vue is in the html file.
     // Before the application runs this TypeScript file will be compiled into bundle.js
@@ -5,9 +10,14 @@ new Vue({
     el: "#app",
     data: {
         name: "",
-        greeting: ""
+        greeting: "",
+        MusicRecord: {artist:"", DurationInSec: , }
     },
     methods: {
+        GetAll(){
+            axios.get<>
+
+        },
         sayHello() {
             console.log("Say Hello " + this.name)
             if (this.name == "") {
