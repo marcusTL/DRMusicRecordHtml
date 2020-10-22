@@ -18,8 +18,14 @@
 <body>
   <h1>Hello</h1>
   <div id="app">
-    <button v-on:click="GetAll()" class="btn btn-primary">Get all with filename</button>
-    <div>{{ musicRecords }}</div>
+    <button v-on:click="GetAll()" class="btn btn-primary">Get all</button>
+    <ul>
+      <li v-for="record in musicRecords">
+         {{ record.artist }} - {{record.title}}<br>
+         Duration: {{record.durationInSeconds }},
+        Publication year: {{ record.yearOfPublication}},
+        Platinum certified: {{ record.isCertifiedPlatinum}}
+      </li>
   </div>
 
   <script src="bundle.js"></script>
