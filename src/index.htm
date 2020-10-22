@@ -18,7 +18,7 @@
 <body>
   <h1>Hello</h1>
   <div id="app">
-    <button v-on:click="GetAll()" class="btn btn-primary">Get all</button>
+    <button id="GetAllRecordsBtn" v-on:click="GetAll()" class="btn btn-primary">Get all</button>
     <ul>
       <li v-for="record in musicRecords">
          {{ record.artist }} - {{record.title}}<br>
