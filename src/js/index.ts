@@ -3,7 +3,7 @@ import axios, {
     AxiosError
 } from "../../node_modules/axios/index"
 
-interface IMusicRecord{
+interface IMusicRecord {
     Title: string
     Artist: string
     DurationInSec: number
@@ -24,10 +24,12 @@ new Vue({
         addMusicRecord: {
             Title: "", Artist: "", DurationInSec: 0,
             YearOfPublication: 0, IsCertifiedPlatinum: false
-        }
+        },
+        searchInput: "",
+        searchOption: ""
     },
     methods: {
-        GetAll() : void{
+        GetAll(): void {
             axios.get<IMusicRecord[]>(baseURL)
                 .then((response: AxiosResponse<IMusicRecord[]>) => {
                     this.musicRecords = response.data;
@@ -35,8 +37,20 @@ new Vue({
                 })
                 .catch((error: AxiosError) => {
                     console.log(error.message);
-                })
+                });
 
+        },
+        SearchRecords(): void {
+            let searchQuery = "search?" + this.searchOption + "=" + this.searchInput;
+            axios.get<IMusicRecord[]>(baseURL + searchQuery)
+                .then((response: AxiosResponse<IMusicRecord[]>) => {
+                    this.musicRecords = response.data;
+                    console.log(response.data);
+                })
+                .catch((error: AxiosError) => {
+
+                    console.log(error.message);
+                });
         }
     }
 })

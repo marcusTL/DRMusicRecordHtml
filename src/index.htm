@@ -21,11 +21,22 @@
     <button id="GetAllRecordsBtn" v-on:click="GetAll()" class="btn btn-primary">Get all</button>
     <ul id="GetAllUL">
       <li v-for="record in musicRecords">
-         {{ record.artist }} - {{record.title}}<br>
-         Duration: {{record.durationInSeconds }},
+        {{ record.artist }} - {{record.title}}<br>
+        Duration: {{record.durationInSeconds }},
         Publication year: {{ record.yearOfPublication}},
         Platinum certified: {{ record.isCertifiedPlatinum}}
       </li>
+    </ul>
+    <br>
+    <section>
+      <input type="search" v-model="searchInput" id="searchInput" placeholder="Search...">
+      <select v-model="searchOption" id="searchOption">
+        <option value="Title" selected>Title</option>
+        <option value="Artist">Artist</option>
+        <option value="DurationInSeconds">Duration (seconds)</option>
+      </select>
+      <button class="btn btn-primary" id="searchBtn" @click="SearchRecords()">Search</button>
+    </section>
   </div>
 
   <script src="bundle.js"></script>
