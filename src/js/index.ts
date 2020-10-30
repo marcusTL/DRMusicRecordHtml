@@ -51,6 +51,16 @@ new Vue({
 
                     console.log(error.message);
                 });
+        },
+        AddMusicRecord(): void{
+            axios.post<IMusicRecord>(baseURL,this.addMusicRecord)
+            .then((Response: AxiosResponse)=>{
+                console.log(Response.data)
+                console.log(this.addMusicRecord)
+            })
+            .catch((error: AxiosError)=>{
+                console.log(error.message)
+            })
         }
     }
 })
