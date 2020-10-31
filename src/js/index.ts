@@ -65,6 +65,7 @@ new Vue({
                 console.log(error.message);
             })
         },
+        
         //?artist={artist}&title={title}
         DeleteMusicRecord(deleteArtist: string, deleteTitle: string): void{
             let deleteQuery = `?artist=${this.deleteArtist}&title=${this.deleteTitle}` ;
