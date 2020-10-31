@@ -25,10 +25,12 @@ new Vue({
             title: "", artist: "", durationInSeconds: 0,
             yearOfPublication: 0, isCertifiedPlatinum: false
         },
+        addSuccessful: false,
         searchInput: "",
         searchOption: "",
         deleteTitle: "",
-        deleteArtist: ""
+        deleteArtist: "",
+        deleteSuccessful: false
     },
     methods: {
         GetAll(): void {
@@ -59,6 +61,7 @@ new Vue({
             .then((Response: AxiosResponse)=>{
                 console.log(Response.data);
                 console.log(this.addMusicRecord);
+                this.addSuccessful = true;
             })
             .catch((error: AxiosError)=>{
                 console.log(this.addMusicRecord);
@@ -73,6 +76,7 @@ new Vue({
             .then((Response: AxiosResponse)=>{
                 console.log(Response.data);
                 console.log("Deleted: " + this.deleteArtist + " - " + this.deleteTitle);
+                this.deleteSuccessful = true;
             })
             .catch((error: AxiosError)=>{
                 console.log("Deleted: " + this.deleteArtist + " - " + this.deleteTitle);
