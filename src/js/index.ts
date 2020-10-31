@@ -26,7 +26,9 @@ new Vue({
             yearOfPublication: 0, isCertifiedPlatinum: false
         },
         searchInput: "",
-        searchOption: ""
+        searchOption: "",
+        deleteTitle: "",
+        deleteArtist: ""
     },
     methods: {
         GetAll(): void {
@@ -62,6 +64,19 @@ new Vue({
                 console.log(this.addMusicRecord);
                 console.log(error.message);
             })
+        },
+        //?artist={artist}&title={title}
+        DeleteMusicRecord(deleteArtist: string, deleteTitle: string): void{
+            let deleteQuery = `?artist=${this.deleteArtist}&title=${this.deleteTitle}` ;
+            axios.delete<IMusicRecord>(baseURL + deleteQuery)
+            .then((Response: AxiosResponse)=>{
+                console.log(Response.data);
+                console.log("Deleted: " + this.deleteArtist + " - " + this.deleteTitle);
+            })
+            .catch((error: AxiosError)=>{
+                console.log("Deleted: " + this.deleteArtist + " - " + this.deleteTitle);
+                console.log(error.message);
         }
+
     }
 })

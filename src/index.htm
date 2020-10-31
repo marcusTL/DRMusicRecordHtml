@@ -39,14 +39,19 @@
     </section>
     <br>
     <section>
-      <input type="text" id="InpTitle" v-model="addMusicRecord.title" placeholder="Title">
       <input id="InpArtist" v-model="addMusicRecord.artist" placeholder="Artist">
+      <input type="text" id="InpTitle" v-model="addMusicRecord.title" placeholder="Title">
       <input id="InpDuration" v-model.number="addMusicRecord.durationInSeconds" type="number" placeholder="Duration">
       <input id="InpYear" v-model.number="addMusicRecord.yearOfPublication" type="number" placeholder="Year of publication">
       <label>Platinum?</label>
       <input type="checkbox" id="InpPlat" v-model="addMusicRecord.isCertifiedPlatinum" placeholder="CertifiedPlatiun?">
       <br>
       <button class="btn btn-primary" id="PostBtn" @click="AddMusicRecord()">Post</button>
+    </section>
+    <section>
+      <input type="text" id="deleteArtist" v-model="deleteArtist" placeholder="Artist to Delete">
+      <input type="text" id="deleteTitle" v-model="deleteTitle" placeholder="Title To Delete">
+      <button class="btn btn-warning" id="deleteBtn" @click="DeleteMusicRecord">Delete</button>
     </section>
   </div>
 
