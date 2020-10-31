@@ -4,11 +4,11 @@ import axios, {
 } from "../../node_modules/axios/index"
 
 interface IMusicRecord {
-    Title: string
-    Artist: string
-    DurationInSec: number
-    YearOfPublication: number
-    IsCertifiedPlatinum: boolean
+    title: string
+    artist: string
+    durationInSeconds: number
+    yearOfPublication: number
+    isCertifiedPlatinum: boolean
 }
 
 let baseURL = "http://drmusicrest.azurewebsites.net/MusicRecord";
@@ -22,8 +22,8 @@ new Vue({
         fileName: "",
         musicRecords: [],
         addMusicRecord: {
-            Title: "", Artist: "", DurationInSec: 0,
-            YearOfPublication: 0, IsCertifiedPlatinum: false
+            title: "", artist: "", durationInSeconds: 0,
+            yearOfPublication: 0, isCertifiedPlatinum: false
         },
         searchInput: "",
         searchOption: ""
@@ -33,7 +33,7 @@ new Vue({
             axios.get<IMusicRecord[]>(baseURL)
                 .then((response: AxiosResponse<IMusicRecord[]>) => {
                     this.musicRecords = response.data;
-                    console.log(response.data)
+                    console.log(response.data);
                 })
                 .catch((error: AxiosError) => {
                     console.log(error.message);
@@ -55,11 +55,12 @@ new Vue({
         AddMusicRecord(): void{
             axios.post<IMusicRecord>(baseURL,this.addMusicRecord)
             .then((Response: AxiosResponse)=>{
-                console.log(Response.data)
-                console.log(this.addMusicRecord)
+                console.log(Response.data);
+                console.log(this.addMusicRecord);
             })
             .catch((error: AxiosError)=>{
-                console.log(error.message)
+                console.log(this.addMusicRecord);
+                console.log(error.message);
             })
         }
     }
