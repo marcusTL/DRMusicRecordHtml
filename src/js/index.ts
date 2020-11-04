@@ -11,7 +11,7 @@ interface IMusicRecord {
     isCertifiedPlatinum: boolean
 }
 
-let baseURL = "http://drmusicrest.azurewebsites.net/MusicRecord";
+let baseURL = "http://drmusicrest.azurewebsites.net/MusicRecord/";
 
 new Vue({
     // TypeScript compiler complains about Vue because the CDN link to Vue is in the html file.
