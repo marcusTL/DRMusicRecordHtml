@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en-US">
-  
+
 <head>
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -42,7 +42,8 @@
       <input id="InpArtist" v-model="addMusicRecord.artist" placeholder="Artist">
       <input type="text" id="InpTitle" v-model="addMusicRecord.title" placeholder="Title">
       <input id="InpDuration" v-model.number="addMusicRecord.durationInSeconds" type="number" placeholder="Duration">
-      <input id="InpYear" v-model.number="addMusicRecord.yearOfPublication" type="number" placeholder="Year of publication">
+      <input id="InpYear" v-model.number="addMusicRecord.yearOfPublication" type="number"
+        placeholder="Year of publication">
       <label>Platinum?</label>
       <input type="checkbox" id="InpPlat" v-model="addMusicRecord.isCertifiedPlatinum" placeholder="CertifiedPlatiun?">
       <br>
@@ -53,7 +54,24 @@
       <input type="text" id="deleteArtist" v-model="deleteArtist" placeholder="Artist to Delete">
       <input type="text" id="deleteTitle" v-model="deleteTitle" placeholder="Title To Delete">
       <button class="btn btn-warning" id="deleteBtn" @click="DeleteMusicRecord">Delete</button>
-      <div class="alert alert-success" id="deleteSuccessful" v-if="deleteSuccessful">Successfully deleted a record.</div>
+      <div class="alert alert-success" id="deleteSuccessful" v-if="deleteSuccessful">Successfully deleted a record.
+      </div>
+    </section>
+    <br>
+    <section>
+      <input type="text" id="updateArtist" v-model="updateArtist" placeholder="Artist to update">
+      <input type="text" id="updateTitle" v-model="updateTitle" placeholder="Title to update">
+      <br>
+      <input type="text" id="updateInpArtist" v-model="updateMusicRecord.artist" placeholder="Artist">
+      <input type="text" id="updateInpTitle" v-model="updateMusicRecord.title" placeholder="Title">
+      <input id="updateInpDuration" v-model.number="updateMusicRecord.durationInSeconds" type="number" placeholder="Duration">
+      <input id="updateInpYear" v-model.number="updateMusicRecord.yearOfPublication" type="number"
+        placeholder="Year of publication">
+      <label>Platinum?</label>
+      <input type="checkbox" id="updateInpPlat" v-model="updateMusicRecord.isCertifiedPlatinum" placeholder="CertifiedPlatiun?">
+      <br>
+      <button class="btn btn-primary" id="UpdateBtn" @click="UpdateMusicRecord(updateArtist, updateTitle)">Update</button>
+      <div class="alert alert-success" id="updateSuccessful" v-if="updateSuccessful">{{ updateMessage }}</div>
     </section>
   </div>
 
