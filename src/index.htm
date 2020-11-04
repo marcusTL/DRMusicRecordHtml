@@ -71,7 +71,7 @@
       <input type="checkbox" id="updateInpPlat" v-model="updateMusicRecord.isCertifiedPlatinum" placeholder="CertifiedPlatiun?">
       <br>
       <button class="btn btn-primary" id="UpdateBtn" @click="UpdateMusicRecord(updateArtist, updateTitle)">Update</button>
-      <div class="alert alert-success" id="updateSuccessful" v-if="updateSuccessful">{{ updateMessage }}</div>
+      <div class="alert alert-success" id="updateSuccessful" v-if="updateSuccessful"><span id="updateMessage">{{ updateMessage }}</span></div>
     </section>
   </div>
 
